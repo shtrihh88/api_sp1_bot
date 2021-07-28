@@ -59,7 +59,8 @@ def get_homeworks(current_timestamp):
         )
         return homework_statuses.json()
     except Exception as e:
-        logging.error(f'Error: {e}')
+        logger.exception(f'Error: {e}')
+        send_message(f'Error: {e}')
 
 
 def send_message(message):
@@ -68,7 +69,7 @@ def send_message(message):
 
 def main():
     logging.debug('Бот запущен!')
-    current_timestamp = int(time.time())  # Начальное значение timestamp
+    current_timestamp = int(time.time())
 
     while True:
         try:
@@ -78,14 +79,14 @@ def main():
                 send_message(
                     parse_homework_status(result[0])
                 )
-                logging.info('Сообщение отправлено')
+                logger.info('Сообщение отправлено')
             current_timestamp = new_homework.get(
                 'current_date', current_timestamp
             )
             time.sleep(5 * 60)  # Опрашивать раз в пять минут
 
         except Exception as e:
-            logging.error(f'Бот упал с ошибкой: {e}')
+            logger.error(f'Бот упал с ошибкой: {e}')
             send_message(f'Бот упал с ошибкой: {e}')
             time.sleep(5)
 
