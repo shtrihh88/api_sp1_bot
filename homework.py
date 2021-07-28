@@ -68,7 +68,7 @@ def send_message(message):
 
 
 def main():
-    logging.debug('Бот запущен!')
+    logger.debug('Бот запущен!')
     current_timestamp = int(time.time())
 
     while True:
