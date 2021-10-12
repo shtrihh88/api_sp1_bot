@@ -13,7 +13,7 @@ load_dotenv()
 PRAKTIKUM_TOKEN = os.getenv('PRAKTIKUM_TOKEN')
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
-URL = 'https://praktikum.yandex.ru/api/user_api/homework_statuses/'
+URL = 'https://practicum.yandex.ru/api/user_api/homework_statuses/'
 
 bot = telegram.Bot(token=TELEGRAM_TOKEN)
 logging.basicConfig(
@@ -83,7 +83,7 @@ def main():
             current_timestamp = new_homework.get(
                 'current_date', current_timestamp
             )
-            time.sleep(20 * 60)  # Опрашивать раз в пять минут
+            time.sleep(20 * 60)  # Опрашивать раз в 20 минут
 
         except Exception as e:
             logger.error(f'Бот упал с ошибкой: {e}')
