@@ -11,7 +11,7 @@
 * Клонируйте репозиторий:
 
 ```bash
-git https://github.com/shtrihh88/api_sp1_bot/
+https://github.com/shtrihh88/api_sp1_bot.git
 ```
 * Перейдите в директорию с проектом и создайте виртуальное окружение:
 
